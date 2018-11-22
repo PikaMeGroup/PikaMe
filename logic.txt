@@ -1,0 +1,16 @@
+User info:
+name
+seeking (maybe add joke with seaking)
+age?
+pokemon/egg group
+
+Logic:
+
+Listing pokemon to choose from when making profile:
+list egg groups
+list pokemon within
+show rows of pokemon sprites or other picture if available.
+save selected mon as a number
+
+Matching with other users:
+pull list of compatible users
