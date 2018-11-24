@@ -17,6 +17,10 @@ router.get('/login', function(req, res, next) {
   res.render('login',{title:'Login'});
 });
 
+router.get('/profile', function(req, res, next) {
+  res.render('profile',{title:'Profile'});
+});
+
 
 
 router.post('/login',passport.authenticate('local',{failureRedirect:'/users/login', failureFlash: 'Invalid username or password'}),
@@ -99,7 +103,7 @@ router.post('/register' , function(req, res, next) {
 		req.flash('success', 'You are now registered and can login');
 
 		res.location('/');
-		res.redirect('/');
+		res.redirect('/users/profile');
 
 	}
 });

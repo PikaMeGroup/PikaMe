@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <title>Welcome</title>
@@ -37,28 +36,50 @@
 	</div>
 
 	<div class="containertwo">  
-    <h2 class="page-header">Register</h2>
+    <h2 class="page-header">Pick your pokemon</h2>
       <p>Please register using the form below</p>
       <form method="post" action="/users/register" enctype='application/x-www-form-urlencoded' class= "formclass">
         <div class="form-group"></div>
-        <label>Name </label>
-        <input class="form-control" name="name" type="text" placeholder="Enter name"/>
+
+      <!--   <label>Pick your egg group</label>
+        <input class="form-control" name="name" type="text" placeholder="egg group"/>
         <div class="form-group"></div>
-        <label>Email </label>
-        <input class="form-control" name="email" type="email" placeholder="Enter Email"/>
-        <div class="form-group"></div>
-        <label>Username </label>
-        <input class="form-control" name="username" type="text" placeholder="Enter User name"/>
-        <div class="form-group"></div>
-        <label>Password</label>
-        <input class="form-control" name="password" type="password" placeholder="Enter password"/>
-        <div class="form-group"></div>
-        <label>Confirm Passwords</label>
-        <input class="form-control" name="password2" type="password" placeholder="Confirm password"/>
+
+         -->
+       <div class="form-group"></div>
+          <label for="sel1">Pick your egg group:</label>
+            <select id="egggroup">
+              <option>Monster</option>
+              <option>Water 1</option>
+              <option>Bug</option>
+              <option>Flying</option>
+              <option>Field</option>
+              <option>Fairy</option>
+              <option>Grass</option>
+              <option>Human-Like</option>
+              <option>Water 3</option>
+              <option>Mineral</option>
+              <option>Amorphous</option>
+              <option>Water 2</option>
+              <option>Ditto</option>
+              <option>Dragon</option>
+  
+            </select>
+
+   <!--      <label>Pick your pokemon </label>
+        <input class="form-control" name="email" type="email" placeholder="pokemon"/>
+        <div class="form-group"></div> -->
+     
+      <div class="form-group"></div>
+          <label for="sel1">Pick your pokemon:</label>
+            <select class="form-control" id="pokemon">
+              <option>poke1</option>
+              <option>poke2</option>
+              <option>poke3</option>
+              <option>poke4</option>
+            </select>
         <br>
-<!--         <input class="btn btn-primary" type="submit" name="submit" value="Register"/>
- -->      
-        <input class="btn btn-primary" type="submit" name="submit" value="Pick your pokemon"/>
+        <input class="btn btn-primary" type="submit" name="submit" value="Register"/>
       </form>
   </div>
 

@@ -21,7 +21,7 @@ var favicon = require('serve-favicon');
 
 var multer = require('multer');
 var upload = multer({dest: './uploads'});
-//stores messages and dsiaplys it to uses
+//stores messages and dsiaplys it to users
 var flash = require('connect-flash');
 var bcrypt = require('bcryptjs');
 var mongo = require('mongodb');
