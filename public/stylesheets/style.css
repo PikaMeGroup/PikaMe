@@ -148,3 +148,29 @@ font-size: 80px;
 }
 /*this is for the login page*/
 
+/*Index page css*/
+@font-face {
+    font-family: "pokeFont";
+    src: url(/stylesheets/fonts/pokemon.ttf) format("truetype");
+}
+
+#pokeDisplay {
+  height: 150px;
+  width: 150px;
+  position: relative;
+  display: inline-block;
+  margin: 2px;
+  text-align: center;
+  font-family: "pokeFont";
+}
+
+
+.display {
+  height: auto;
+  display: block;
+  position: relative;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+}
+/*end of index page css*/
