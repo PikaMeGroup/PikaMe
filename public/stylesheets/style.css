@@ -156,21 +156,28 @@ font-size: 80px;
 
 #pokeDisplay {
   height: 150px;
-  width: 150px;
+  width: 100px;
   position: relative;
   display: inline-block;
-  margin: 2px;
+  margin: 25px;
   text-align: center;
   font-family: "pokeFont";
+  font-size: 15px;
 }
 
 
-.display {
-  height: auto;
+#display {
+  border: 1px solid black;
+  overflow-y: scroll;
+  height: 500px;
   display: block;
   position: relative;
-  left: 0px;
-  right: 0px;
+  left: -280px;
   margin: auto;
+  font: 4px;
+  width: 500px;
 }
-/*end of index page css*/
+
+ #display1 { display: none; }
+    #display1:target { display: block; }
+/*end of profile page css*/

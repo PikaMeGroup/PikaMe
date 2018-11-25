@@ -5,6 +5,8 @@
     <title>Welcome</title>
       <link rel="stylesheet" href="/stylesheets/bootstrap.css">
       <link rel="stylesheet" href="/stylesheets/style.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -28,13 +30,16 @@
     </div>
   </div>
   
-	<div class="main-text hidden-xs">
-  	<div class="col-md-12 text-left">
-    	<h1 style="font-family: 'Lato'">PikaMe</h1>
-    	<p style="font-family: 'Lato'"></p>Raziq is lame but he's cool sometimes i guess. He has great hair.
+<!-- 	<div class="main-text hidden-xs">
+ -->  	
+  <div class="col-md-12 text-left">
+    	<h3 style="font-family: 'Lato'" id = "eggName">
+      Pick a group...
+     </h3>
+        <div id="display"></div>
   	</div>
-	</div>
-
+<!-- 	</div>
+ -->
 	<div class="containertwo">  
     <h2 class="page-header">Pick your pokemon</h2>
       <p>Please register using the form below</p>
@@ -48,21 +53,24 @@
          -->
        <div class="form-group"></div>
           <label for="sel1">Pick your egg group:</label>
-            <select id="egggroup">
-              <option>Monster</option>
-              <option>Water 1</option>
-              <option>Bug</option>
-              <option>Flying</option>
-              <option>Field</option>
-              <option>Fairy</option>
-              <option>Grass</option>
-              <option>Human-Like</option>
-              <option>Water 3</option>
-              <option>Mineral</option>
-              <option>Amorphous</option>
-              <option>Water 2</option>
-              <option>Ditto</option>
-              <option>Dragon</option>
+            <select id="egggroup" onchange = "displayAllGroup()">
+              <option disabled selected value> ---select a group--- </option>
+              <option value= "1">monster</option>
+              <option value= "2">water1</option>
+              <option value= "3">bug</option>
+              <option value= "4">flying</option>
+              <option value= "5">ground</option>
+              <option value= "6">fairy</option>
+              <option value= "7">grass</option>
+              <option value= "8">humanshape</option>
+              <option value= "9">water3</option>
+              <option value= "10">mineral</option>
+              <option value= "11">indeterminate</option>
+              <option value= "12">water2</option>
+              <option value= "13">ditto</option>
+              <option value= "14">dragon</option>
+              <option value= "15">no-eggs</option>
+
   
             </select>
 
@@ -70,20 +78,30 @@
         <input class="form-control" name="email" type="email" placeholder="pokemon"/>
         <div class="form-group"></div> -->
      
-      <div class="form-group"></div>
+     <!--  <div class="form-group"></div>
           <label for="sel1">Pick your pokemon:</label>
             <select class="form-control" id="pokemon">
               <option>poke1</option>
               <option>poke2</option>
               <option>poke3</option>
               <option>poke4</option>
-            </select>
+            </select> -->
+
         <br>
+<!--         <button id="pokeBut">Try it</button>
+ -->          
+          <!-- <p id="pokeName"></p>
+          <img id="pokePic" src=""> -->
+
+          
         <input class="btn btn-primary" type="submit" name="submit" value="Register"/>
       </form>
   </div>
 
 
+
+
 </body>
+<script src="/javascript/poke.js"></script>
 
 </html>
