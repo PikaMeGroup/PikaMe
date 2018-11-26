@@ -98,14 +98,12 @@ function displayPokemon(pokemon) {
 var pokeList = [];
 
 document.getElementById("regisButt").addEventListener("click", function(){
-        var entry = document.getElementById("pokeName").innerHTML;
-        console.log('entry is', entry);
-        pokeList.push(entry);
-      var data = {
+    var entry = document.getElementById("pokeName").innerHTML;
+    console.log('entry is', entry);
+    pokeList.push(entry);
+    var data = {
         pokemonname: entry
-      };
-      // $.post('/save', data);
-
+    };
       $.ajax({
             type: "POST",
             url: '/save',
@@ -127,3 +125,6 @@ document.getElementById("regisButt").addEventListener("click", function(){
 
   
 });
+
+
+

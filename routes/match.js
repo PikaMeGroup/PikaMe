@@ -1,1 +1,4 @@
-console.log('hi is it me you looking forrrrr')
+var express = require('express');
+var router = express.Router();
+var User = require('../models/user');
+
