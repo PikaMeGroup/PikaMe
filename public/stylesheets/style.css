@@ -176,6 +176,7 @@ font-size: 80px;
   margin: auto;
   font: 4px;
   width: 500px;
+  cursor: pointer;
 }
 
  #display1 { display: none; }
