@@ -7,7 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('nodeauth:server');
 var http = require('http');
-var socketApi = require('../socketApi');
+var socketApi = require('../routes/socketApi');
 var io = socketApi.io;
 
 /**
