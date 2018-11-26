@@ -94,6 +94,10 @@ app.get('*',function(req,res,next){
 app.use('/', routes);
 app.use('/users', users);
 
+app.get('/testchat', function (req, res) {
+	res.render('chat.hbs');
+});
+
 // // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
 //   next(createError(404));
