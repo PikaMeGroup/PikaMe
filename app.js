@@ -117,7 +117,11 @@ app.use(function(err, req, res, next) {
 });
 
 app.get('/testchat', function (req, res) {
+
+	console.log('testing chat ');
 	res.render('chat.hbs');
+	console.log('testing chat did not work');
+
 });
 
 module.exports = app;
