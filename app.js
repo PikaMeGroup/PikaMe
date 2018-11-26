@@ -1,14 +1,16 @@
 // error pop ups 
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+var favicon = require('serve-favicon');
 var logger = require('morgan');
 // parses cookies (small files which are stored)
 // and populates req.cooki. transports data between client and server
 var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 //body parsing middleware, populates the req.body with the
 //value of the parameter of a post
-var bodyParser = require('body-parser');
 //stores user data between HTTP request
 var session = require('express-session');
 //authenticate requests
@@ -17,7 +19,6 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var expressValidator = require('express-validator');
 
-var favicon = require('serve-favicon');
 
 var multer = require('multer');
 var upload = multer({dest: './uploads'});
@@ -91,23 +92,28 @@ app.get('*',function(req,res,next){
 	next();
 })
 
+
+app.get('/javascript/poke.js', function(req,res,next){
+	res.locals
+})
+
 app.use('/', routes);
 app.use('/users', users);
 
-// // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   next(createError(404));
-// });
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
 
-// // error handler
-// app.use(function(err, req, res, next) {
-//   // set locals, only providing error in development
-//   res.locals.message = err.message;
-//   res.locals.error = req.app.get('env') === 'development' ? err : {};
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-//   // render the error page
-//   res.status(err.status || 500);
-//   //res.render('error');
-// });
+  // render the error page
+  res.status(err.status || 500);
+  //res.render('error');
+});
 
 module.exports = app;

@@ -17,11 +17,23 @@ var UserSchema = mongoose.Schema({
 	},
 	name: {
 		type: String 
-	}
+	},
+
+	pokeselect: [{type: String}]
+	
 });
 
 //export user schema
 var User = module.exports = mongoose.model('User', UserSchema);
+
+
+//appends selected pokemon to db
+module.exports.appendPoke = function(regUser, pokemonname, callback){
+	console.log('appending pokemon', regUser, pokemonname);
+	regUser.pokeselect.addToSet(pokemonname);
+	regUser.save(callback);
+	console.log('done appending pokemon', regUser, pokemonname);
+}
 
 module.exports.getUserById = function(id, callback){
 	User.findById(id, callback);
@@ -38,7 +50,7 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
     	callback(null, isMatch);
 	});
 }
-
+;
 module.exports.createUser = function(newUser, callback){
 	bcrypt.genSalt(10, function(err, salt) {
     	bcrypt.hash(newUser.password, salt, function(err, hash) {

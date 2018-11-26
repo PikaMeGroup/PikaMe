@@ -94,3 +94,36 @@ function displayPokemon(pokemon) {
     div.appendChild(para);
     document.getElementById("display").appendChild(div);
 }
+
+var pokeList = [];
+
+document.getElementById("regisButt").addEventListener("click", function(){
+        var entry = document.getElementById("pokeName").innerHTML;
+        console.log('entry is', entry);
+        pokeList.push(entry);
+      var data = {
+        pokemonname: entry
+      };
+      // $.post('/save', data);
+
+      $.ajax({
+            type: "POST",
+            url: '/save',
+            data: data,
+            dataType: "json",
+            success: function(data, textStatus) {
+                console.log(data);
+                if (data.redirect) {
+                    // data.redirect contains the string URL to redirect to
+                    window.location.href = data.redirect;
+                }
+                else {
+                    // data.form contains the HTML for the replacement form
+                    // $("#myform").replaceWith(data.form);
+                    console.log('ajax did not work')
+        }
+    }
+});
+
+  
+});

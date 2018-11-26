@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var multer = require('multer');
+var upload = multer({dest: './uploads'});
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
-var multer = require('multer');
 
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -17,9 +18,6 @@ router.get('/login', function(req, res, next) {
   res.render('login',{title:'Login'});
 });
 
-router.get('/profile', function(req, res, next) {
-  res.render('profile',{title:'Profile'});
-});
 
 
 
@@ -61,12 +59,12 @@ passport.use(new LocalStrategy(function(username, password, done){
 }));
 
 router.post('/register' , function(req, res, next) {
-	//console.log(req.body.name);
 	var name = req.body.name;
 	var email = req.body.email;
 	var username = req.body.username;
 	var password = req.body.password;
 	var password2 = req.body.password2;
+
 
 	console.log("req file is " , name, " email is ", email);
 
@@ -77,7 +75,7 @@ router.post('/register' , function(req, res, next) {
 	req.checkBody('username','Username field is required').notEmpty();
 	req.checkBody('password','Password field is required').notEmpty();
 	req.checkBody('password2','Passwords do not match').equals(req.body.password);
-
+	
 	//check errors 
 	var errors = req.validationErrors();
 	console.log(errors);
@@ -92,7 +90,9 @@ router.post('/register' , function(req, res, next) {
 			name: name,
 			email: email,
 			username: username,
-			password: password
+			password: password,
+			poke: []
+
 		});
 
 		User.createUser(newUser, function(err, user){
@@ -103,10 +103,12 @@ router.post('/register' , function(req, res, next) {
 		req.flash('success', 'You are now registered and can login');
 
 		res.location('/');
-		res.redirect('/users/profile');
+		res.redirect('/');
 
 	}
 });
+
+
 
 router.get('/logout', function(req,res){
 	req.logout();
