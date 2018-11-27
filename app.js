@@ -18,7 +18,7 @@ var passport = require('passport');
 
 var LocalStrategy = require('passport-local').Strategy;
 var expressValidator = require('express-validator');
-
+const hbs = require('hbs');
 
 var multer = require('multer');
 var upload = multer({dest: './uploads'});
@@ -36,6 +36,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname + '/views/partials');
 
 
 // start of setting up middleware
@@ -61,7 +62,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 //validator
 app.use(expressValidator({
 	errorFormatter: function(param,msg, value){
@@ -80,7 +80,6 @@ app.use(expressValidator({
 	}
 }));
 
-
 app.use(require('connect-flash')());
 app.use(function (req, res, next) {
   res.locals.messages = require('express-messages')(req, res);
@@ -92,10 +91,9 @@ app.get('*',function(req,res,next){
 	next();
 })
 
-
-app.get('/javascript/poke.js', function(req,res,next){
-	res.locals
-})
+// app.get('/javascript/poke.js', function(req,res,next){
+// 	res.locals
+// })
 
 app.use('/', routes);
 app.use('/users', users);
