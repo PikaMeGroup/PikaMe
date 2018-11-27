@@ -4,8 +4,8 @@ document.getElementById('chatbox').addEventListener('click', function(){
 	  type: "GET",
 	  url: "/userList",
 	success: function(res) {
-        console.log(res);
-        alert(res);
+        console.log("res is", res);
+        // alert(res);
     }});
 
 })
