@@ -1,3 +1,3 @@
-# NodeLab9
+# PikaMe
 
-Making a readme
+A Pokemon chatting app.
