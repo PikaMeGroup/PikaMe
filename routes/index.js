@@ -8,7 +8,7 @@ router.get('/', ensureAuthenticated,function(req, res, next) {
   res.render('index', { title: 'Members' });
 });
 
-router.get('/match',function(req, res) {
+router.get('/match', ensureAuthenticated, function(req, res) {
   console.log('trying to  show match');
   res.render('match.hbs');
   console.log('match shouldve loaded');
