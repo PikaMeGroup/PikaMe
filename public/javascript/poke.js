@@ -81,6 +81,7 @@ function displayPokemon(pokemon, count, total) {
     para.setAttribute("id", "pokePara");
 
     div.onclick = function() {
+        document.getElementById('btnDIV').style.display = 'block';
         changeText(name);
         document.getElementById('pokeName').innerHTML = name;
     };

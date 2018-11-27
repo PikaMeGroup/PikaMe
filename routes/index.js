@@ -65,7 +65,7 @@ router.get('/userList', function(req,res) {
     res.send(userMap); 
     console.log('done getting all users...')
 
-});
+  });
 });
 
 module.exports = router;

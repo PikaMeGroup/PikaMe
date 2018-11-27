@@ -180,6 +180,10 @@ font-size: 80px;
   cursor: pointer;
 }
 
+#btnDIV {
+  display: none;
+}
+
  #display1 { display: none; }
     #display1:target { display: block; }
 /*end of profile page css*/
