@@ -91,7 +91,7 @@ router.post('/register' , function(req, res, next) {
 			email: email,
 			username: username,
 			password: password,
-			poke: []
+			poke: ""
 
 		});
 

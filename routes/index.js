@@ -4,7 +4,7 @@ var User = require('../models/user');
 
 
 /* GET home page. */
-router.get('/', ensureAuthenticated,function(req, res, next) {
+router.get('/', ensureAuthenticated, function(req, res, next) {
   res.render('index', { title: 'Members' });
 });
 
@@ -27,7 +27,6 @@ function ensureAuthenticated(req,res,next){
 
 router.post('/save', ensureAuthenticated, function(req, res) {
       console.log('at poke for ', req.user.name, 'saving', req.body.pokemonname);
-
       User.getUserByUsername(req.user.name,function(err,user){
         if(err){
             console.log("some err", err);
@@ -41,8 +40,7 @@ router.post('/save', ensureAuthenticated, function(req, res) {
             if(err) {
                 console.log('some other err', err);
                 return;
-            }
-            
+            }    
             console.log('successfully added', req.body.pokemonname, 'to ', req.user.name);
            	// req.flash('success', 'pokemon saved');
             // res.location('/');
@@ -50,8 +48,6 @@ router.post('/save', ensureAuthenticated, function(req, res) {
             res.send({
             	redirect:'/match'
             })
-
-
         });
     });
   });

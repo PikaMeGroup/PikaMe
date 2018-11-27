@@ -19,7 +19,9 @@ var UserSchema = mongoose.Schema({
 		type: String 
 	},
 
-	pokeselect: [{type: String}]
+	pokeselect: {
+		type: String
+	}
 	
 });
 
@@ -30,7 +32,7 @@ var User = module.exports = mongoose.model('User', UserSchema);
 //appends selected pokemon to db
 module.exports.appendPoke = function(regUser, pokemonname, callback){
 	console.log('appending pokemon', regUser, pokemonname);
-	regUser.pokeselect.addToSet(pokemonname);
+	regUser.pokeselect = pokemonname;
 	regUser.save(callback);
 	console.log('done appending pokemon', regUser, pokemonname);
 }
