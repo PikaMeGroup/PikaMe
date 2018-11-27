@@ -62,7 +62,20 @@ router.get('/userList', function(req,res) {
       userMap[user._id] = user;
     });
 
-    res.send(userMap); 
+    usernamelist = []
+    pokelist = []
+
+   for (var key in userMap){
+      username = userMap[key].username;
+      pokesel = userMap[key].pokeselect;
+      usernamelist.push(username);
+      pokelist.push(pokesel); 
+    };
+
+    var result = {};
+    usernamelist.forEach((user, i) => result[user] = pokelist[i]);
+    console.log(result);
+    res.send(result); 
     console.log('done getting all users...')
 
 });
