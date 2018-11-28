@@ -26,8 +26,8 @@ function ensureAuthenticated(req,res,next){
 
 
 router.post('/save', ensureAuthenticated, function(req, res) {
-      console.log('at poke for ', req.user.name, 'saving', req.body.pokemonname);
-      User.getUserByUsername(req.user.name,function(err,user){
+      console.log('at poke for ', req.user.username, 'saving', req.body.pokemonname);
+      User.getUserByUsername(req.user.username,function(err,user){
         if(err){
             console.log("some err", err);
             throw err;
@@ -41,7 +41,7 @@ router.post('/save', ensureAuthenticated, function(req, res) {
                 console.log('some other err', err);
                 return;
             }    
-            console.log('successfully added', req.body.pokemonname, 'to ', req.user.name);
+            console.log('successfully added', req.body.pokemonname, 'to ', req.user.username);
            	// req.flash('success', 'pokemon saved');
             // res.location('/');
             // res.redirect('/match');

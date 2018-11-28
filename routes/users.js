@@ -84,7 +84,7 @@ router.post('/register' , function(req, res, next) {
 			email: email,
 			username: username,
 			password: password,
-			poke: ""
+			pokeselect: ""
 		});
 		User.createUser(newUser, function(err, user){
 			if(err) throw err;
