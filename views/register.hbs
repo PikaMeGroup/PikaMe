@@ -9,30 +9,13 @@
 </head>
 
 <body>
-  <div class="navbar navbar-default" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="#">PikaMe</a>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li>
-            <a href="/users/register">Register</a>
-          </li>
-          <li>
-            <a href="/users/login">Login</a>
-         </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-        </ul>
-      </div>
-    </div>
-  </div>
-  
+  {{> menubar}}
+
 	<div class="main-text hidden-xs">
-  	<div class="col-md-12 text-left">
+  	<div class="col-md-12">
     	<h1 style="font-family: 'Lato'">PikaMe</h1>
-    	<p style="font-family: 'Lato'"></p>Raziq is lame but he's cool sometimes i guess. He has great hair.
+    	<p style="font-family: 'Lato'"></p>Find your pokebuddy! 
+    </div>
   	</div>
 	</div>
 
@@ -40,9 +23,6 @@
     <h2 class="page-header">Register</h2>
       <p>Please register using the form below</p>
       <form method="post" action='/users/register',enctype='multipart/form-data'>
-        <div class="form-group"></div>
-        <label>Name </label>
-        <input class="form-control" name="name" type="text" placeholder="Enter name"/>
         <div class="form-group"></div>
         <label>Email </label>
         <input class="form-control" name="email" type="email" placeholder="Enter Email"/>
@@ -56,9 +36,7 @@
         <label>Confirm Passwords</label>
         <input class="form-control" name="password2" type="password" placeholder="Confirm password"/>
         <br>
-<!--         <input class="btn btn-primary" type="submit" name="submit" value="Register"/>
- -->      
-        <input class="btn btn-primary" type="submit" name="submit" value="Pick your pokemon"/>
+       <input class="btn btn-primary" type="submit" name="submit" value="Pick your pokemon"/>
 
       </form>
   </div>

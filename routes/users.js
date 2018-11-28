@@ -18,17 +18,12 @@ router.get('/login', function(req, res, next) {
   res.render('login',{title:'Login'});
 });
 
-
-
-
 router.post('/login',passport.authenticate('local',{failureRedirect:'/users/login', failureFlash: 'Invalid username or password'}),
-
   function(req, res) {
   	console.log('you are logged in');
  	req.flash('success','You are now logged in', req.body.username);
  	res.redirect('/');
   });
-
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
@@ -39,7 +34,6 @@ passport.deserializeUser(function(id, done) {
     done(err, user);
   });
 });
-
 
 passport.use(new LocalStrategy(function(username, password, done){
 	User.getUserByUsername(username,function(err,user){
@@ -59,17 +53,13 @@ passport.use(new LocalStrategy(function(username, password, done){
 }));
 
 router.post('/register' , function(req, res, next) {
-	var name = req.body.name;
 	var email = req.body.email;
 	var username = req.body.username;
 	var password = req.body.password;
 	var password2 = req.body.password2;
 
-
-	console.log("req file is " , name, " email is ", email);
-
+	//console.log("req file is " , name, " email is ", email);
 	//form validator 
-	req.checkBody('name','Name field is required').notEmpty();
 	req.checkBody('email','Email field is required').notEmpty();
 	req.checkBody('email','Email field is not valid').isEmail();
 	req.checkBody('username','Username field is required').notEmpty();
@@ -87,28 +77,20 @@ router.post('/register' , function(req, res, next) {
 	}else{
 		console.log('no errors');
 		var newUser = new User({
-			name: name,
 			email: email,
 			username: username,
 			password: password,
-			poke: []
-
+			pokeselect: ""
 		});
-
 		User.createUser(newUser, function(err, user){
 			if(err) throw err;
 			console.log(user);
 		});
-
 		req.flash('success', 'You are now registered and can login');
-
 		res.location('/');
 		res.redirect('/');
-
 	}
 });
-
-
 
 router.get('/logout', function(req,res){
 	req.logout();

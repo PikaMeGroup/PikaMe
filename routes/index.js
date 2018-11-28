@@ -4,11 +4,11 @@ var User = require('../models/user');
 
 
 /* GET home page. */
-router.get('/', ensureAuthenticated,function(req, res, next) {
+router.get('/', ensureAuthenticated, function(req, res, next) {
   res.render('index', { title: 'Members' });
 });
 
-router.get('/match',function(req, res) {
+router.get('/match', ensureAuthenticated, function(req, res) {
   console.log('trying to  show match');
   res.render('match.hbs');
   console.log('match shouldve loaded');
@@ -32,9 +32,8 @@ function ensureAuthenticated(req,res,next){
 
 
 router.post('/save', ensureAuthenticated, function(req, res) {
-      console.log('at poke for ', req.user.name, 'saving', req.body.pokemonname);
-
-      User.getUserByUsername(req.user.name,function(err,user){
+      console.log('at poke for ', req.user.username, 'saving', req.body.pokemonname);
+      User.getUserByUsername(req.user.username,function(err,user){
         if(err){
             console.log("some err", err);
             throw err;
@@ -47,20 +46,45 @@ router.post('/save', ensureAuthenticated, function(req, res) {
             if(err) {
                 console.log('some other err', err);
                 return;
-            }
-            
-            console.log('successfully added', req.body.pokemonname, 'to ', req.user.name);
+            }    
+            console.log('successfully added', req.body.pokemonname, 'to ', req.user.username);
            	// req.flash('success', 'pokemon saved');
             // res.location('/');
             // res.redirect('/match');
             res.send({
             	redirect:'/match'
             })
-
-
         });
     });
   });
 
+
+router.get('/userList', function(req,res) {
+  console.log('getting all users...')
+  User.find({}, function(err, users) {
+    var userMap = {};
+
+    users.forEach(function(user) {
+      userMap[user._id] = user;
+    });
+
+    usernamelist = []
+    pokelist = []
+
+   for (var key in userMap){
+      username = userMap[key].username;
+      pokesel = userMap[key].pokeselect;
+      usernamelist.push(username);
+      pokelist.push(pokesel); 
+    };
+
+    var result = {};
+    usernamelist.forEach((user, i) => result[user] = pokelist[i]);
+    console.log(result);
+    res.send(result); 
+    console.log('done getting all users...')
+
+});
+});
 
 module.exports = router;
