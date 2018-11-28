@@ -6,12 +6,10 @@ function getEgg() {
     var selEgg = document.getElementById('egggroup');
     var selEggVal = selEgg.options[selEgg.selectedIndex].value;
     var selEggText = selEgg.options[selEgg.selectedIndex].text;
-
-    document.getElementById('eggName').innerHTML = selEggText + ' group';
+    document.getElementById('eggname').innerHTML = selEggText + ' group';
     console.log(selEggVal);
     return selEggVal;
 }
-
 
 function getData(link) {
 
@@ -31,7 +29,6 @@ function displayAllGroup() {
     var eggroup = getEgg();
     var data = getData('http://pokeapi.co/api/v2/egg-group/' + eggroup);
     var group = data.pokemon_species;
-
 
     document.getElementById('loading').innerHTML = 'Loading...'
     for (var i = 0; i <= group.length - 1; i++) {
@@ -106,9 +103,7 @@ document.getElementById("regisButt").addEventListener("click", function(){
                     console.log('ajax did not work')
         }
     }
-});
-
-  
+}); 
 });
 
 
