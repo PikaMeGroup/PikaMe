@@ -156,6 +156,10 @@ font-family: 'Montserrat', sans-serif;
 color: black;
 font-size: 75px;
 }
+
+#regisButt {
+  display: none;
+}
 /*this is for the login page*/
 
 /*Index page css*/
