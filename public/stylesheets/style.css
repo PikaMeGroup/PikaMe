@@ -200,3 +200,30 @@ font-size: 75px;
  #display1 { display: none; }
     #display1:target { display: block; }
 /*end of profile page css*/
+
+/*Match page*/
+#matches {
+  position: absolute;
+  width: 800px;
+  min-height: 150px;
+  left: 23%;
+  top: 30%;
+  display: table;
+}
+#matchpic {
+  display: table-cell;
+  position: relative;
+  background-color: red;
+  width: 200px;
+  height: 150px;
+  opacity: 0.2;
+}
+#matchtext {
+  display: table-cell;
+  position: relative;
+  background-color: green;
+  width: 600px;
+  height: 150px;
+  opacity: 0.2;
+}
+/*End of match*/
