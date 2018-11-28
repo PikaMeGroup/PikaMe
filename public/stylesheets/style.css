@@ -85,12 +85,6 @@ font-size: 80px;
     font-size: 49px;
 }*/
 
-.carousel-item{
-   -webkit-filter: brightness(29%);
-    filter:brightness(29%);
-}
-
-
 .main-container{
     width: 450px;
     height: 200px;
@@ -130,6 +124,23 @@ body{
   top: 100px;
 }
 
+
+.containerindex{
+  width: 35%;
+  background-color: lightgrey;
+  margin: auto;
+  padding-left:20px;
+  padding-right:20px;
+  padding-bottom:15px;
+  padding-top: 2px;
+  border-radius: 20px;
+  position: absolute;
+  height: 54%;
+  right: 120px;
+  bottom: 0px;
+  top: 100px;
+}
+
 .main-text {
 position: absolute;
 top: 10%;
@@ -161,6 +172,13 @@ font-size: 75px;
 }
 
 
+#eggname{
+  font-family: 'Montserrat', sans-serif;
+  font: 4px;
+  color: red;
+  left: 240px;
+  position: absolute;
+}
 #display {
   border: 1px solid black;
   overflow-y: scroll;
@@ -171,6 +189,7 @@ font-size: 75px;
   margin: auto;
   font: 4px;
   width: 500px;
+  top: 50px;
   cursor: pointer;
 }
 
