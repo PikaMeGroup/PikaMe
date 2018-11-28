@@ -116,8 +116,4 @@ app.use(function(err, req, res, next) {
   //res.render('error');
 });
 
-app.get('/testchat', function (req, res) {
-	res.render('chat.hbs');
-});
-
 module.exports = app;
