@@ -8,9 +8,7 @@ function getEgg() {
     var selEggText = selEgg.options[selEgg.selectedIndex].text;
 
     document.getElementById('eggName').innerHTML = selEggText + ' group';
-
     console.log(selEggVal);
-
     return selEggVal;
 }
 
@@ -27,24 +25,10 @@ function getData(link) {
     })).responseJSON;
 }
 
-// function findPoke() {
-//     var pokemon = document.getElementById('pokeInput').value
-//     var pokemonLink = `pokemon/` + pokemon
-//     pokemonData = getData(pokemonLink)
-//     console.log(pokemonData)
-//     var name = pokemonData.name
-//     var image = pokemonData.sprites.front_default
-//     document.getElementById("pokeName").innerHTML = name;
-//     document.getElementById("pokePic").src = image;
-
-//     displayAllGroup()
-// }
-
 function displayAllGroup() {
     console.log("displaygroup");
     document.getElementById('display').innerHTML = '';
     var eggroup = getEgg();
-
     var data = getData('http://pokeapi.co/api/v2/egg-group/' + eggroup);
     var group = data.pokemon_species;
 

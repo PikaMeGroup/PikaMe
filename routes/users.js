@@ -25,7 +25,6 @@ router.post('/login',passport.authenticate('local',{failureRedirect:'/users/logi
  	res.redirect('/');
   });
 
-
 passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
@@ -54,15 +53,13 @@ passport.use(new LocalStrategy(function(username, password, done){
 }));
 
 router.post('/register' , function(req, res, next) {
-	var name = req.body.name;
 	var email = req.body.email;
 	var username = req.body.username;
 	var password = req.body.password;
 	var password2 = req.body.password2;
 
-	console.log("req file is " , name, " email is ", email);
+	//console.log("req file is " , name, " email is ", email);
 	//form validator 
-	req.checkBody('name','Name field is required').notEmpty();
 	req.checkBody('email','Email field is required').notEmpty();
 	req.checkBody('email','Email field is not valid').isEmail();
 	req.checkBody('username','Username field is required').notEmpty();
@@ -80,7 +77,6 @@ router.post('/register' , function(req, res, next) {
 	}else{
 		console.log('no errors');
 		var newUser = new User({
-			name: name,
 			email: email,
 			username: username,
 			password: password,
