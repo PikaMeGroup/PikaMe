@@ -14,6 +14,12 @@ router.get('/match', ensureAuthenticated, function(req, res) {
   console.log('match shouldve loaded');
 });
 
+router.get('/testchat', function (req, res) {
+    console.log('Trying to access testchat')
+    res.render('chat.hbs');
+    console.log('testchat accessed')
+});
+
 function ensureAuthenticated(req,res,next){
   if(req.isAuthenticated()){
 		var uname;
