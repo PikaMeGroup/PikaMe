@@ -77,14 +77,37 @@ router.get('/userList', function(req,res) {
       usernamelist.push(username);
       pokelist.push(pokesel); 
     };
-
     var result = {};
     usernamelist.forEach((user, i) => result[user] = pokelist[i]);
     console.log(result);
+
+    //getting current user
+
     res.send(result); 
     console.log('done getting all users...')
 
 });
+});
+
+
+router.get('/currentUser', function(req,res) {
+  console.log('getting all users...')
+ 
+    User.gettingUser(req.user.username),function(err,user){
+        if(err){
+            console.log("some err", err);
+            throw err;
+        }
+        if(!user){
+            console.log('no user found');
+            return;;
+        }
+        currUser = req.user.username;
+        console.log('logging current user in index', currUser);
+    };
+    res.send(currUser); 
+    console.log('done getting all users...')
+
 });
 
 module.exports = router;
