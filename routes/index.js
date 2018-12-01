@@ -1,7 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
-
+//socket io stuff
+var socket_io = require('socket.io');
+var io = socket_io();
+var socketApi = {};
 
 /* GET home page. */
 router.get('/', ensureAuthenticated, function(req, res, next) {
@@ -17,6 +20,7 @@ router.get('/match', ensureAuthenticated, function(req, res) {
 router.get('/testchat', function (req, res) {
     console.log('Trying to access testchat')
     res.render('chat.hbs');
+
     console.log('testchat accessed')
 });
 
@@ -93,21 +97,22 @@ router.get('/userList', function(req,res) {
 router.get('/currentUser', function(req,res) {
   console.log('getting all users...')
  
-    User.gettingUser(req.user.username),function(err,user){
-        if(err){
-            console.log("some err", err);
-            throw err;
-        }
-        if(!user){
-            console.log('no user found');
-            return;;
-        }
-        currUser = req.user.username;
-        console.log('logging current user in index', currUser);
-    };
+    currUser = req.user.username;
     res.send(currUser); 
     console.log('done getting all users...')
 
 });
 
+router.post('/chat', function(req,res) {
+  console.log('starting chat...')
+ 
+    currUser = req.user.username;
+    // res.send(currUser); 
+    console.log('done getting all users...')
+
+    res.send({
+          redirect:'/testchat'
+    })
+
+});
 module.exports = router;

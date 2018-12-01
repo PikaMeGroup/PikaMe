@@ -1,45 +1,31 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta http-equiv="Content-Type" const="text/html;charset=UTF-8" />
+    <link href="http://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
 
-<head>
-	<link rel="stylesheet" type="text/css" href="css/chat.css" />
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="/stylesheets/bootstrap.css">
-	<link rel="stylesheet" href="/stylesheets/style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <title>Simple Chat App</title>
+  </head>
 
-	<title>My Private Messaging</title>
-</head>
+  <body>
+    <header>
+      <h1>Poke Chat</h1>
+    </header>
 
-<body>
-	{{> menubar}}
-	<div id="chatWrap">
-		<div id="chat"></div>
-		<form id="send-message">
-			<input size="35" id="message"></input>
-			<input type="submit"></input>
-		</form>
-	</div>
+    <section id="chatroom">
+      <section id="feedback"></section>
+    </section>
 
-	<script>
-		jQuery(function($) {
-		var socket = io.connect();
-		var $messageForm = $('#send-message');
-		var $messageBox = $('#message');
-		var $chat = $('#chat');
+    
 
-		$messageForm.submit(function(e) {
-			e.preventDefault();
-			socket.emit('sending message', $messageBox.val());
-			$messageBox.val('')
-		});
+    <section id="input_zone"> 
+      <input id="message" class="vertical-align" type="text" />
+      <button id="send_message" class="vertical-align" type="button">Send</button>
+    </section>
 
-		socket.on('new message', function(data) {
-			$chat.append(data + "<br/>");
-		});
-	});
-		
-	</script>
-</body>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/javascript/chat.js"></script>
+  </body>
 </html>
