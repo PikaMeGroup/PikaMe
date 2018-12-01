@@ -19,28 +19,29 @@
   	</div>
 	</div>
 
-	<div class="containertwo">  
-    <h2 class="page-header">Register</h2>
+<!-- 	<div class="containertwo">  
+ -->  
+      <form method="post" id = "regisform"action='/users/register',enctype='multipart/form-data'>
+          <h2 class="page-header">Register</h2>
       <p>Please register using the form below</p>
-      <form method="post" action='/users/register',enctype='multipart/form-data'>
         <div class="form-group"></div>
         <label>Email </label>
-        <input class="form-control" name="email" type="email" placeholder="Enter Email"/>
+        <input class="form-control input-sm" id="inputsm" name="email" type="email" placeholder="Enter Email"/>
         <div class="form-group"></div>
         <label>Username </label>
-        <input class="form-control" name="username" type="text" placeholder="Enter User name"/>
+        <input class="form-control input-sm" id="inputsm" name="username" type="text" placeholder="Enter User name"/>
         <div class="form-group"></div>
         <label>Password</label>
-        <input class="form-control" name="password" type="password" placeholder="Enter password"/>
+        <input class="form-control input-sm" id="inputsm" name="password" type="password" placeholder="Enter password"/>
         <div class="form-group"></div>
         <label>Confirm Passwords</label>
-        <input class="form-control" name="password2" type="password" placeholder="Confirm password"/>
+        <input class="form-control input-sm" id="inputsm" name="password2" type="password" placeholder="Confirm password"/>
         <br>
        <input class="btn btn-primary" type="submit" name="submit" value="Pick your pokemon"/>
 
       </form>
-  </div>
-
+<!--   </div>
+ -->
 
 </body>
 

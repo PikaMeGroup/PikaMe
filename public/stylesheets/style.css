@@ -62,29 +62,6 @@ form{
   background-size: cover;
 }
 
-/*.main-text {
-position: absolute;
-top: 30%;
-width: 42%;
-color:#ECE9E7;
-font-weight: bold;
-font-size: 28px;
-}
-
-.main-text h1 {
-font-family: 'Montserrat', sans-serif;
-color: #ECE9E7;
-font-size: 80px;
-}
-*/
-/*         overlay styles */
-/*h1 {
-    font-family: 'Lato', sans-serif;
-    color: white;
-    margin-bottom: 0;
-    font-size: 49px;
-}*/
-
 .main-container{
     width: 450px;
     height: 200px;
@@ -92,13 +69,11 @@ font-size: 80px;
 .main-wrapper{
     margin: auto;
     background-color: #ccc;
-
 }
 
 a{
     text-decoration: none;
 }
-
 
 body{
 	background-image: url('https://i.redd.it/oexlfzwy78ex.png');
@@ -106,10 +81,9 @@ body{
     background-size: cover;
 }
 
-
-.containertwo{
+#loginform{
   width: 35%;
-  background-color: lightgrey;
+  background-color: #CAB08D;
   margin: auto;
   padding-left:20px;
   padding-right:20px;
@@ -122,6 +96,23 @@ body{
   left: 0px ;
   bottom: 0px;
   top: 100px;
+}
+
+#regisform{
+   width: 35%;
+  background-color: #CAB08D;
+  margin: auto;
+  padding-left:20px;
+  padding-right:20px;
+  padding-bottom:15px;
+  padding-top: 2px;
+  border-radius: 20px;
+  position: absolute;
+  height: 68%;
+  right: 0px;
+  left: 0px ;
+  bottom: 0px;
+  top: 200px;
 }
 
 

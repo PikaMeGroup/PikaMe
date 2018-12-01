@@ -18,10 +18,10 @@
     </div>
   </div>
   
-  <div class="containertwo"> 
-    <h2 class="page-header">Login</h2>
+   
+      <form method="post" id = "loginform"action="/users/login"  enctype='application/x-www-form-urlencoded' class= "formclass">
+         <h2 class="page-header">Login</h2>
       <p>Please login below</p>
-      <form method="post" action="/users/login"  enctype='application/x-www-form-urlencoded' class= "formclass">
         <div class="form-group"></div>
         <label>Username </label>
         <input class="form-control" name="username" type="text" placeholder="Enter User name"/>
@@ -31,7 +31,6 @@
         <br>
         <input class="btn btn-primary" type="submit" name="submit" value="Login"/>
       </form>
-  </div>
 </body>
 
 </html>
