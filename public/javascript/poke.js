@@ -29,12 +29,9 @@ function displayAllGroup() {
     var eggroup = getEgg();
     var data = getData('http://pokeapi.co/api/v2/egg-group/' + eggroup);
     var group = data.pokemon_species;
-
-    document.getElementById('loading').innerHTML = 'Loading...'
     for (var i = 0; i <= group.length - 1; i++) {
         displayPokemon(group[i],i+1,group.length);
     }
-    document.getElementById('loading').innerHTML = ''
 }
 
 function changeText(text) {
@@ -63,6 +60,7 @@ function displayPokemon(pokemon, count, total) {
 
     div.onclick = function() {
         changeText(name);
+        document.getElementById('regisButt').style.display = 'block';
         document.getElementById('pokeName').innerHTML = name;
     };
 
