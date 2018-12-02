@@ -143,11 +143,11 @@ body{
   padding-right:20px;
   padding-top: 2px;
   border-radius: 20px;
-  position: absolute;
-  height: 55vh;
-  left: 20% ;
+  position: relative;
+  height: auto;
+  left:-12%;
   bottom: 0px;
-  top: 10%;
+  top: 30%;
 }
 
 
@@ -158,12 +158,13 @@ body{
   padding-left:20px;
   padding-right:20px;
   padding-top: 2px;
+  padding-bottom:10px;
   border-radius: 20px;
-  position: absolute;
-  height: 65vh;
-  left:20%;
+  position: relative;
+  height: auto;
+  left:-12.5%;
   bottom:0%;
-  top: 20%;
+  top: 22%;
 }
 
 .main-text {
@@ -396,10 +397,10 @@ p.message {
     padding-bottom: 15px;
     padding-top: 2px;
     border-radius: 20px;
-    position: absolute;
-    height: 50%;
-     left: 20%;
+    position: relative;
+    height: 50vh;
+    left: -13%;
     bottom: 0px;
-    top: 10%;
+    top: 25%;
     
 }
