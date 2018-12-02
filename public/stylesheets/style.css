@@ -101,7 +101,7 @@ body{
     top:0px;
     left:0px;
     height:100vh;
-    width:15%;
+    width:15vw;
     position:absolute;
     background-image: url('https://i.pinimg.com/originals/ea/0a/a3/ea0aa3d19fba8a802cc00a3af3d6d1e5.jpg');
     background-size:cover;
@@ -111,7 +111,7 @@ body{
     top: 0px;
     right:0px;
     height: 100vh;
-    width: 15%;
+    width: 15vw;
     position: absolute;
     background-image: url('https://i.pinimg.com/originals/ea/0a/a3/ea0aa3d19fba8a802cc00a3af3d6d1e5.jpg');
     background-size:cover;
@@ -133,19 +133,18 @@ body{
 }
 
 #regisform{
-   width: 35%;
+  width: 35%;
   background-color: #81BEF7;
   margin: auto;
   padding-left:20px;
   padding-right:20px;
-  padding-bottom:15px;
   padding-top: 2px;
   border-radius: 20px;
   position: absolute;
   height: 50%;
   left: 20% ;
   bottom: 0px;
-  top: 110px;
+  top: 10%;
 }
 
 
@@ -155,14 +154,13 @@ body{
   margin: auto;
   padding-left:20px;
   padding-right:20px;
-  padding-bottom:15px;
   padding-top: 2px;
   border-radius: 20px;
   position: absolute;
-  height: 70%;
+  height: 60%;
   left:20%;
-  bottom: 0px;
-  top: 250px;
+  bottom:0%;
+  top: 20%;
 }
 
 .main-text {
@@ -208,15 +206,14 @@ font-size: 75px;
   opacity: 0;
 }
 #display {
+  border: solid 1px black;
   overflow-y: scroll;
-  height: 400px;
+  height: 60%;
   display: block;
   position: relative;
-  left: 0px;
+  left: 0%;
   margin: auto;
   font: 4px;
-  width: 650px;
-  top: 10px;
   cursor: pointer;
 }
 
@@ -273,14 +270,15 @@ font-size: 75px;
 }
 
 #resultArea{
+ border:solid 1px black;
  overflow-y: scroll;
- height: 400px;
+ height: 70%;
  display: block;
  position: relative;
  left: 0px;
  margin: auto;
  font: 4px;
- width: 600px;
+ width: 100%;
  top: 10px;
  cursor: pointer;
 }
@@ -396,9 +394,9 @@ p.message {
     padding-top: 2px;
     border-radius: 20px;
     position: absolute;
-    height: 60%;
+    height: 50%;
      left: 20%;
     bottom: 0px;
-    top: 250px;
+    top: 10%;
     
 }
