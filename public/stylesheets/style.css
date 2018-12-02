@@ -7,6 +7,9 @@
   transition: opacity 3s;
 }
 
+.pokenav {
+  z-index: 999;
+}
 
 ul.success li{
 	padding: 15px;
