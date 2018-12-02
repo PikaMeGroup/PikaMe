@@ -32,13 +32,18 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+
+
+app.use(express.static(__dirname + '/node_modules'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 
-
+app.set('socketio', io);
 // start of setting up middleware
 //generate a detailed log using the dev format (predefined)
 app.use(logger('dev'));
@@ -115,4 +120,24 @@ app.use(function(err, req, res, next) {
   //res.render('error');
 });
 
+//listen on every connection
+io.on('connection', (socket) => {
+	console.log('New user connected')
+	//default username
+	socket.username = "Anonymous"
+
+	//listen on new_message
+	socket.on('new_message', (data) => {
+		//broadcast the new message
+		io.sockets.emit('new_message', { message: data.message, username: socket.username });
+	})
+
+	//listen on typing
+	socket.on('typing', (data) => {
+		socket.broadcast.emit('typing', { username: socket.username })
+	})
+})
+
+
+server.listen(3000)
 module.exports = app;
