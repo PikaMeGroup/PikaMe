@@ -256,8 +256,9 @@ font-size: 75px;
 
 
 #matchDisplay{
-   height: 150px;
-  width: 50%;
+  display: inline-block;
+  height: 140px;
+  width: 45%;
   position: relative;
   display: inline-block;
   margin: 25px;

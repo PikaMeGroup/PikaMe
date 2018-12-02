@@ -1,31 +1,7 @@
-
-//uu is a genius mongod
-document.getElementById('matchbtn').addEventListener('click', function(){
+var matchbtn = document.getElementById('matchbtn')
+matchbtn.addEventListener('click', function(){
     //Function for 'getusers' button.
-    console.log('matchbtn has been clicked');
-    // $.when(
-    //     $.ajax({
-    //         type: "GET",
-    //         url: "/currentUser",
-    //         success: function(res) {
-    //             console.log("res 1", res);
-    //             result1 = res;
-    //         }
-    //     }),
-
-    //     $.ajax({
-    //         type: "GET",
-    //         url: "/userList",
-    //         success: function(res) {
-    //             console.log("res 2 is", res);
-    //             result2 = res;
-    //         }
-    //     })
-    // ).then(function() {
-    //     console.log("A", result1);
-    //     console.log("B", result2);
-    // })
-
+    matchbtn.style.display = 'none';
     return getUserList().then(getCurrentUser());
     
 })
@@ -68,16 +44,17 @@ function getEgg(pokelist) {
         username = prop;
         userpoke = pokelist[prop];
         var data = getData('http://pokeapi.co/api/v2/pokemon/' + userpoke +'/');
-            var group = Object.values(data)[12];
-            var species = Object.values(group)[1];
+        var group = Object.values(data)[12];
+        var species = Object.values(group)[1];
         var eggdata = getData(species);
-            var egg = eggdata["egg_groups"];
-            var getegggroup = Object.values(egg)[0];
-            var getgetegggroup = Object.values(getegggroup)[0]
+        var egg = eggdata["egg_groups"];
+        var getegggroup = Object.values(egg)[0];
+        var getgetegggroup = Object.values(getegggroup)[0]
 
         console.log(username + " = " + userpoke + " belongs to " + getgetegggroup);
         // getPic(userpoke, username);
         pokedict = pokelist
+        console.log(pokedict);
         eggdict[username] = getgetegggroup
     }
 
@@ -87,7 +64,8 @@ function getEgg(pokelist) {
 //uu is a genius mongod
 //match users if in the same egg group
 function matchUsers(currUser){
-
+    var currentUserEgg;
+    var userCount = 0;
     console.log("eggdict is", eggdict);
     for (var key in eggdict) {
       if (key == currUser){
@@ -98,18 +76,37 @@ function matchUsers(currUser){
     console.log('current user ', currUser, " is in egg group ", currentUserEgg);
     console.log("pokedict is ", pokedict);
 
-    var keys = Object.keys(eggdict);
-    var values = Object.values(eggdict)
-    for (var i = 0; i < keys.length; i++) {
+    var groups = Object.keys(eggdict);
+    console.log("groups", groups);
+    var values = Object.values(eggdict);
+    console.log("values", values);
+    for (var i = 0; i < groups.length; i++) {
         console.log(values[i], values[i] == currentUserEgg);
-        if (values[i] == currentUserEgg){
-            findkey = keys[i];
-            console.log("users who matched are ", findkey)
-            matchedUser = pokedict[findkey]
-            console.log(matchedUser)
-            getPic(matchedUser, findkey);
+        if (values[i] == currentUserEgg || currentUserEgg == "ditto" || values[i] == "ditto"){
+            matchedUser = groups[i];
+            console.log("users who matched are ", matchedUser)
+            matchedUserPoke = pokedict[matchedUser]
+            console.log('match:' + matchedUserPoke + 'curr:' + currUser)
+            if (matchedUser != currUser) {
+                getPic(matchedUserPoke, matchedUser);
+                userCount++
+            }
+            
         }
     }
+    if (userCount == 0) {
+        noUsersFound()
+    }
+}
+
+function noUsersFound() {
+    var div = document.createElement("DIV");
+    var para = document.createElement("p");
+    var text = document.createTextNode("No matches found, sorry.");
+    para.appendChild(text);
+    div.setAttribute("id", "matchDisplay");
+    div.appendChild(para);
+    document.getElementById("resultArea").appendChild(div);
 }
 
 function getData(link) {
@@ -135,11 +132,13 @@ function getPic(poke, username){
     var div = document.createElement("DIV");
     var img = document.createElement("img");
     var para = document.createElement("p");
-    var text = document.createTextNode(username);
+    var formatted_name = username.charAt(0).toUpperCase() + username.slice(1);
+    var text = document.createTextNode(formatted_name);
 
     var button = document.createElement('BUTTON');
     button.setAttribute('id', "matchButton");
-    button.innerHTML = ("Click here to chat with " + username);
+    button.setAttribute('class', "btn btn-info");
+    button.innerHTML = ("Click here to chat with " + formatted_name);
 
     button.onclick = function(){
         console.log('woaaaa hi');
@@ -169,7 +168,7 @@ function getPic(poke, username){
     div.appendChild(para);
     div.appendChild(button);
 
-    document.getElementById("resultArea").appendChild(div);
+    document.getElementById("resultArea").append(div);
 
 }
 
@@ -177,7 +176,7 @@ function getPic(poke, username){
 
 // function printUsers(userlist) {
 // //Print all the users that are compatible with the current user
-//     Object.keys(userlist).forEach(function(key) {
+//     Object.groups(userlist).forEach(function(key) {
 //         console.log(key, userlist[key]);
 //         createPic(userlist[key])
 //         createName(key)

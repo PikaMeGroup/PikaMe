@@ -30,6 +30,8 @@ var mongoose = require('mongoose');
 var db = mongoose.connection;
 var routes = require('./routes/index');
 var users = require('./routes/users');
+//Icon on webpage tab
+
 
 var app = express();
 var server = require('http').createServer(app);
@@ -54,6 +56,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 //handles sesssions
 app.use(session({
