@@ -219,8 +219,9 @@ font-size: 75px;
 
 
 #matchDisplay{
-   height: 150px;
-  width: 50%;
+  display: inline-block;
+  height: 140px;
+  width: 45%;
   position: relative;
   display: inline-block;
   margin: 25px;
@@ -233,10 +234,20 @@ font-size: 75px;
 #matchButton{
   display: inline-block;
 }
-#resultArea{
-  border: 1px solid black;
-    overflow-y: scroll;
 
+#matchtxt {
+  left: 13.7%;
+  text-align: center;
+}
+
+#matchbtn {
+  position: absolute;
+  left: 13.7%;
+}
+
+#resultArea{
+  border-radius: 20px;
+  overflow-y: scroll;
   height: 400px;
   display: block;
   position: relative;
@@ -247,6 +258,18 @@ font-size: 75px;
   width: 70%;
   top: 50px;
   cursor: pointer;
+  vertical-align: top;
+}
+
+#resultBackground {
+  background: #80AB40;
+  opacity: 0.45;
+  width: 70%;
+  height: 400px;
+  position: absolute;
+  left: 13.9%;
+  top: 20.8%;
+  right: 0px;
 }
 
 /*End of match*/

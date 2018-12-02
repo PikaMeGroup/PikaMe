@@ -27,7 +27,7 @@ function displayAllGroup() {
     console.log("displaygroup");
     document.getElementById('display').innerHTML = '';
     var eggroup = getEgg();
-    var data = getData('http://pokeapi.co/api/v2/egg-group/' + eggroup);
+    var data = getData('http://pokeapi.co/api/v2/egg-group/' + eggroup + '/');
     var group = data.pokemon_species;
     for (var i = 0; i <= group.length - 1; i++) {
         displayPokemon(group[i],i+1,group.length);
