@@ -91,7 +91,7 @@ body{
   padding-top: 2px;
   border-radius: 20px;
   position: absolute;
-  height: 40%;
+  height: 45vh;
   left:20%;
   bottom: 0px;
   top: 110px;
@@ -141,7 +141,7 @@ body{
   padding-top: 2px;
   border-radius: 20px;
   position: absolute;
-  height: 50%;
+  height: 55vh;
   left: 20% ;
   bottom: 0px;
   top: 10%;
@@ -157,7 +157,7 @@ body{
   padding-top: 2px;
   border-radius: 20px;
   position: absolute;
-  height: 60%;
+  height: 65vh;
   left:20%;
   bottom:0%;
   top: 20%;
@@ -208,7 +208,7 @@ font-size: 75px;
 #display {
   border: solid 1px black;
   overflow-y: scroll;
-  height: 60%;
+  height: 40vh;
   display: block;
   position: relative;
   left: 0%;
