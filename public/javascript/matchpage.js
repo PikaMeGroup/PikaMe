@@ -1,7 +1,7 @@
 var matchbtn = document.getElementById('matchbtn')
+
 matchbtn.addEventListener('click', function(){
     //Function for 'getusers' button.
-    matchbtn.style.display = 'none';
     return getUserList().then(getCurrentUser());
     
 })
