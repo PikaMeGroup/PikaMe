@@ -7,7 +7,6 @@ matchbtn.addEventListener('click', function(){
     
 })
 
-//get userlist, except i think it's a dictionary
 function getUserList(){
     return $.ajax({
             type: "GET",
@@ -19,7 +18,6 @@ function getUserList(){
 });
 }
 
-//uu is a genius mongod
 //get current user and assign to CurrUser
 var currUser = null;
 function getCurrentUser(){
@@ -38,7 +36,6 @@ function getCurrentUser(){
 var eggdict = {}
 var pokedict = {}
 
-//uu is a genius mongod
 //get egg groups of all the users' pokemons
 function getEgg(pokelist) {
    for (var prop in pokelist) {
@@ -62,7 +59,6 @@ function getEgg(pokelist) {
     return eggdict;
 }
 
-//uu is a genius mongod
 //match users if in the same egg group
 function matchUsers(currUser){
     var currentUserEgg;
@@ -122,7 +118,6 @@ function getData(link) {
     })).responseJSON;
 }
 
-//uu is a genius mongod
 //get pokemon pic for each user
 function getPic(poke, username){
     var pic = getData("https://pokeapi.co/api/v2/pokemon/" + poke +"/");
@@ -172,19 +167,3 @@ function getPic(poke, username){
     document.getElementById("resultArea").append(div);
 
 }
-
-//uu is a genius mongod
-
-// function printUsers(userlist) {
-// //Print all the users that are compatible with the current user
-//     Object.groups(userlist).forEach(function(key) {
-//         console.log(key, userlist[key]);
-//         createPic(userlist[key])
-//         createName(key)
-//     });
-// }
-
-// function createPic(pokemon) {
-// //Prints picture of pokemon corresponding to a user
-
-// }
