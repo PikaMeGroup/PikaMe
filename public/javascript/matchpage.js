@@ -2,6 +2,7 @@ var matchbtn = document.getElementById('matchbtn')
 
 matchbtn.addEventListener('click', function(){
     //Function for 'getusers' button.
+    document.getElementById('resultArea').innerHTML = '';
     return getUserList().then(getCurrentUser());
     
 })
