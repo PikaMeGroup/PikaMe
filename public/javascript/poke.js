@@ -1,6 +1,3 @@
-// document.getElementById('pokeBut').addEventListener('click', findPoke);
-//document.getElementById('pokeBut').addEventListener('click', displayAllGroup);
-
 var myData;
 function getEgg() {
     var selEgg = document.getElementById('egggroup');
