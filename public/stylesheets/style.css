@@ -269,6 +269,18 @@ font-size: 75px;
 
 }
 
+#logoutButt {
+    color:aliceblue;
+}
+
+#PikaButt {
+    color: aliceblue;
+}
+
+.navbar {
+    background-color:#81BEF7;
+}
+
 #matchButton{
   display: inline-block;
 }
