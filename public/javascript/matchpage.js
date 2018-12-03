@@ -124,7 +124,7 @@ function getData(link) {
 //uu is a genius mongod
 //get pokemon pic for each user
 function getPic(poke, username){
-    var pic = getData("http://pokeapi.co/api/v2/pokemon/" + poke +"/");
+    var pic = getData("https://pokeapi.co/api/v2/pokemon/" + poke +"/");
      var sprite = pic["sprites"];
      var spritesprite = Object.values(sprite)[4];
      stringsprite = String(spritesprite);
