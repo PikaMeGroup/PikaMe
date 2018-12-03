@@ -279,6 +279,7 @@ font-size: 75px;
  height: 70%;
  display: block;
  position: relative;
+
  left: 0px;
  margin: auto;
  font: 4px;
@@ -394,7 +395,7 @@ p.message {
     margin: auto;
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 25px;
+    padding-bottom: 40px;
     padding-top: 2px;
     border-radius: 20px;
     position: relative;
