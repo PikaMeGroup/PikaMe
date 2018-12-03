@@ -43,7 +43,7 @@ function getEgg(pokelist) {
    for (var prop in pokelist) {
         username = prop;
         userpoke = pokelist[prop];
-        var data = getData('http://pokeapi.co/api/v2/pokemon/' + userpoke +'/');
+        var data = getData('https://pokeapi.co/api/v2/pokemon/' + userpoke +'/');
         var group = Object.values(data)[12];
         var species = Object.values(group)[1];
         var eggdata = getData(species);
@@ -124,7 +124,7 @@ function getData(link) {
 //uu is a genius mongod
 //get pokemon pic for each user
 function getPic(poke, username){
-    var pic = getData("http://pokeapi.co/api/v2/pokemon/" + poke +"/");
+    var pic = getData("https://pokeapi.co/api/v2/pokemon/" + poke +"/");
      var sprite = pic["sprites"];
      var spritesprite = Object.values(sprite)[4];
      stringsprite = String(spritesprite);
