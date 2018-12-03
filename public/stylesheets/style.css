@@ -268,8 +268,19 @@ font-size: 75px;
   font-size: 12px;
 
 }
+#PikameButt {
+    color:aliceblue;
+}
+
+#loginbutt {
+    color:aliceblue;
+}
 
 #logoutButt {
+    color:aliceblue;
+}
+
+#registerbutt {
     color:aliceblue;
 }
 
