@@ -1,8 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
-mongoose.connect('clusterpika-shard-00-00-5roqm.mongodb.net:27017');
+mongoose.connect("mongodb+srv://clusterpika-5roqm.mongodb.net/test");
 var db = mongoose.connection;
-
 //user schema 
 var UserSchema = mongoose.Schema({
 	username: {
