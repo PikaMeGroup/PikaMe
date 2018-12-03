@@ -140,11 +140,23 @@ app.use(function(err, req, res, next) {
   //res.render('error');
 });
 
+currUser = '';
+
+app.get('/username', function(req,res) {
+  console.log('getting all users...')
+ 
+    currUser = req.user.username;
+    res.send(currUser); 
+    console.log('done getting all users...')
+
+});
+console.log(currUser);
 //listen on every connection
 io.on('connection', (socket) => {
 	console.log('New user connected')
 	//default username
-	socket.username = "Anonymous"
+
+	socket.username = currUser;
 
 	//listen on new_message
 	socket.on('new_message', (data) => {
