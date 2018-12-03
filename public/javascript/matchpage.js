@@ -94,6 +94,10 @@ function matchUsers(currUser){
             
         }
     }
+    setTimeout(nousercheck,2000);
+}
+
+function nousercheck() {
     if (userCount == 0) {
         noUsersFound()
     }
