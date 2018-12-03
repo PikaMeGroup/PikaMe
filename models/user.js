@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
-mongoose.connect('mongodb://localhost/pikame');
+mongoose.connect('clusterpika-shard-00-00-5roqm.mongodb.net:27017');
 var db = mongoose.connection;
 
 //user schema 
