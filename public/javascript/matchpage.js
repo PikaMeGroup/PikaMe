@@ -94,14 +94,10 @@ function matchUsers(currUser){
             
         }
     }
-    // setTimeout(nousercheck(userCount),2000);
+    if (userCount == 0) {
+        noUsersFound()
+    }
 }
-
-// function nousercheck(userCount) {
-//     if (userCount == 0) {
-//         noUsersFound()
-//     }
-// }
 
 function noUsersFound() {
     var div = document.createElement("DIV");
