@@ -1,8 +1,9 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
-mongoose.connect("mongodb+srv://clusterpika-5roqm.mongodb.net/test");
+mongoose.connect("mongodb+srv://rajeek:1234@clusterpika-5roqm.mongodb.net/test?retryWrites=true");
 var db = mongoose.connection;
 //user schema 
+
 var UserSchema = mongoose.Schema({
 	username: {
 		type: String,
